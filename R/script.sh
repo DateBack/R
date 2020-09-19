@@ -16,6 +16,6 @@ i=$((i+1))
 
 elif [ -f "$file" ]
 then
-echo "$file is a fileee"
+echo "$file is a fileeee"
 fi
 done
