@@ -16,7 +16,8 @@
       num_of_month <- num_of_month + 1
     }
 
-  day <- if (curent_days_in_month %% 7 != 0) curent_days_in_month %% 7 else 7
+  day <- if (num %% 7 != 0) num %% 7 else 7
   message('Введенное значение ', num, ' соответсвует ', curent_days_in_month, ' ', days[day], ' ', months[num_of_month], ' ', years[year])
 }
 
+print(1033 %% 7)
