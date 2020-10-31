@@ -1,4 +1,4 @@
-setwd("C:/Users/DateBack/Desktop/R/R/Задания/КР/SuperShop/БилюкинСергей")
+setwd("/Users/sergejbilukin/Desktop/R/R/Задания/КР/SuperShop/БилюкинСергей")
 {
 
   generate_all <- function (min_=1, max_=60, days=7, goods='Bread', saleLevel=50) {
@@ -56,7 +56,7 @@ setwd("C:/Users/DateBack/Desktop/R/R/Задания/КР/SuperShop/Билюки�
     write.table(out_, file = paste0(path,'/', 'Магазин', shop, '/', 'out.txt'), sep = ';', row.names=FALSE)
   }
 
-  goods <- c('Bread')
+  goods <- c('Bread', 'Apple', 'Milk')
   goods_prices <- c(200, 300, 400)
   generate_all(goods = goods)
   #generate_single(3, goods = goods)

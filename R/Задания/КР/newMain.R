@@ -1,5 +1,5 @@
 {
-  setwd('C:/Users/DateBack/Desktop/R/R/Задания/КР/SuperShop/Analysis')
+  setwd("/Users/sergejbilukin/Desktop/R/R/Задания/КР/SuperShop/Analysis")
 
   suppliers_price <- 100
   goods_price <- 220
@@ -113,7 +113,7 @@
                         Supply = final_supply, Sales = final_sales, Uniformity = final_uniformity, Wrte_Downs = final_write_downs,
                         Max_Sale_Per_Day = final_max_good_sale_per_day, Max_Sale_Day = final_max_good_sale_day,
                         Min_Sale_Per_Day = final_min_good_sale_per_day, Min_Sale_Day = final_min_good_sale_day)
-  write.table(res.tab, 'C:/Users/DateBack/Desktop/R/R/Задания/КР/SuperShop/Result/result.csv', sep = ';', row.names=FALSE)
+  write.table(res.tab, '/Users/sergejbilukin/Desktop/R/R/Задания/КР/SuperShop/Result/result.csv', sep = ';', row.names=FALSE)
 
 }
 
@@ -199,9 +199,13 @@
            y = y_,
            color = 'Продукты') +
       scale_x_continuous("День", labels = as.character(ID1), breaks = ID1) #показывать все значения по оси x каждый
-    ggsave(paste0("C:/Users/DateBack/Desktop/R/R/Задания/КР/SuperShop/Plots/", file_name))
+    ggsave(paste0("/Users/sergejbilukin/Desktop/R/R/Задания/КР/SuperShop/Plots/", file_name))
   }
+  graph1(in_, out_, 2, type = 'sales')
+  graph1(in_, out_, 2, type = 'profit')
+  graph1(in_, out_, 2, type = 'revenue')
   graph1(in_, out_, 2, type = 'write-downs')
+  graph1(in_, out_, 2, type = 'profitability')
 }
 
 
@@ -229,7 +233,7 @@
            x = "Магазины",
            y = "Объём продаж") +
       scale_x_continuous("Магазины", labels = as.character(shop_numbers), breaks = shop_numbers) #показывать все значения по оси x
-    ggsave("C:/Users/DateBack/Desktop/R/R/Задания/КР/SuperShop/Plots/plot2.png")
+    ggsave("/Users/sergejbilukin/Desktop/R/R/Задания/КР/SuperShop/Plots/plot2.png")
   }
   graph2(out_, goods, 1)
 }
@@ -240,7 +244,7 @@
   library(ggplot2)
   library(dplyr)
   graph3 <- function(out_, goods) {
-    shops <- 1:2
+    shops <- 1:length(out_)
     days_index <- 1:length(as.data.frame(out_[1])[, 1])
     days <- vector()
     goods_names <- vector()
@@ -266,7 +270,7 @@
     print(data)
 
     data %>%
-      ggplot(aes(x = days, y = goods_names, group = interaction(shops, goods_names), color = as.character(shops) )) +
+      ggplot(aes(x = days, y = sales, group = interaction(shops, goods_names), color = as.character(shops) )) +
       geom_line() + # отвечает за линии на графике
       geom_point(aes(shape = goods_names)) +
       scale_shape_manual(values = c(15, 16, 17)) +
@@ -276,7 +280,7 @@
            color = "Магазин",
            shape = "Товар") +
       scale_x_continuous("День", labels = as.character(days_index), breaks = days_index) #показывать все значения по оси x каждый
-    ggsave("C:/Users/DateBack/Desktop/R/R/Задания/КР/SuperShop/Plots/plot3.png")
+    ggsave("/Users/sergejbilukin/Desktop/R/R/Задания/КР/SuperShop/Plots/plot3.png")
   }
   graph3(out_, goods)
 }

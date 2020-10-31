@@ -1,5 +1,6 @@
 {
-  setwd('C:/Users/DateBack/Desktop/R/R/Задания/КР/SuperShop/Analysis')
+  getwd()
+  setwd('/Users/sergejbilukin/Desktop/R/R/Задания/КР/SuperShop/Analysis')
 
   suppliers_price <- 100
   goods_price <- 150
@@ -61,6 +62,6 @@
                         MinSale = min_sale_per_day, MinDay = min_sale_day)
 
 
-  write.table(res.tab, 'C:/Users/DateBack/Desktop/R/R/Задания/КР/SuperShop/Result/result.csv', sep = ';', row.names=FALSE)
+  write.table(res.tab, '/Users/sergejbilukin/Desktop/R/R/Задания/КР/SuperShop/Result/result.csv', sep = ';', row.names=FALSE)
 
 }
