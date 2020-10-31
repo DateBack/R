@@ -5,8 +5,18 @@
   goods_price <- 150
   recovery_price <- 20
 
-  in_ <- data.frame(Day = 1:7)
-  out_ <- data.frame(Day = 1:7)
+
+  in_ <- list()
+  in_list[[1]] <- read.table(dir()[1], header = TRUE)
+
+  out_ <- list()
+  num <- 1
+  for (i in dir())
+    if (grepl("(in)", format(i, digits = 20))) {
+      in_[[num]] <- read.table(i, header = TRUE)
+    } else {
+      out_[[num]] <- read.table(i, header = TRUE)
+    }
 
 
   for (i in dir()) {
